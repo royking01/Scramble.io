@@ -7,13 +7,13 @@
   let randWords = "";
 
   let sWords = [
-    'BAND', 'AND', 'DAB', 'DAN'
+    'BAND', 'ELEVATE', 'BAD', 'SCISSORS', 'ESCALATOR', 'MAN', 'FLOOR', 'ROG', 'LOLLIPOP', 'MASQURADE'
  ];
  const createNewWords = () =>{
   let ranNum = Math.floor( Math.random() * sWords.length);
   let newTempSwords = sWords[ranNum];
-  //console.log(newTempSwords.split(""));
   return newTempSwords;
+
 };
  const scrambleWords = (arr) =>{
   for (let i = arr.length-1; i>=0; i--){
@@ -38,15 +38,13 @@ btn.addEventListener('click', function(){
      msg.innerHTML = `Guess the Word:${randWords}`; 
   }else{
     let tempWord = guess.value;
-    if (tempWord === newWords) {
+    if (tempWord.toLowerCase() === newWords.toLowerCase()) {
       play = false;
       msg.innerHTML = `Awesome its Correct. it is ${newWords}`;
       btn.innerHTML = 'Play Again';
       guess.classList.toggle('hidden');
       guess.value = "";
-          
-
-          }else{
+       }else{
        msg.innerHTML = `Sorry Chief its  Not correct. try again ${randWords}`;
       guess.classList.toggle('hidden');
     }
